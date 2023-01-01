@@ -64,6 +64,7 @@ require (
 	github.com/swaggo/gin-swagger v1.2.0 // indirect
 	github.com/swaggo/swag v1.8.9 // indirect
 	github.com/syndtr/goleveldb v0.0.0-20181127023241-353a9fca669c // indirect
+	github.com/tealeg/xlsx v1.0.5 // indirect
 	github.com/ugorji/go/codec v1.2.8 // indirect
 	github.com/unknwon/com v1.0.1
 	github.com/urfave/cli v1.22.10 // indirect

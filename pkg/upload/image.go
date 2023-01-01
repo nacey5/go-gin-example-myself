@@ -21,7 +21,7 @@ import (
 // CheckImageSize：检查图片大小
 // CheckImage：检查图片
 func GetImageFullUrl(name string) string {
-	return setting.AppSetting.ImagePrefixUrl + "/" + GetImagePath() + name
+	return setting.AppSetting.PrefixUrl + "/" + GetImagePath() + name
 }
 
 func GetImageName(name string) string {
