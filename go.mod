@@ -12,6 +12,7 @@ replace (
 )
 
 require (
+	github.com/360EntSecGroup-Skylar/excelize v1.4.1 // indirect
 	github.com/Knetic/govaluate v3.0.0+incompatible // indirect
 	github.com/PuerkitoBio/purell v1.2.0 // indirect
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 // indirect
@@ -20,6 +21,7 @@ require (
 	github.com/astaxie/beego v1.12.3
 	github.com/beego/goyaml2 v0.0.0-20130207012346-5545475820dd // indirect
 	github.com/beego/x2j v0.0.0-20131220205130-a0352aadc542 // indirect
+	github.com/boombuler/barcode v1.0.1 // indirect
 	github.com/bradfitz/gomemcache v0.0.0-20180710155616-bc664df96737 // indirect
 	github.com/casbin/casbin v1.7.0 // indirect
 	github.com/cloudflare/golz4 v0.0.0-20150217214814-ef862a3cdc58 // indirect
