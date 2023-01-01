@@ -3,29 +3,36 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/EDDYCJY/go-gin-example/models"
+	"github.com/EDDYCJY/go-gin-example/pkg/logging"
 	"github.com/EDDYCJY/go-gin-example/pkg/setting"
 	"github.com/EDDYCJY/go-gin-example/routers"
+	"github.com/fvbock/endless"
 	"log"
-	"net/http"
 	"os"
 	"os/signal"
+	"syscall"
 	"time"
 )
 
 func main() {
-	router := routers.InitRouter()
+	setting.Setup()
+	models.Setup()
+	logging.Setup()
 
-	s := &http.Server{
-		Addr:           fmt.Sprintf(":%d", setting.HttpPort),
-		Handler:        router,
-		ReadTimeout:    setting.ReadTimeout,
-		WriteTimeout:   setting.WriteTimeout,
-		MaxHeaderBytes: 1 << 20,
+	endless.DefaultReadTimeOut = setting.ServerSetting.ReadTimeout
+	endless.DefaultWriteTimeOut = setting.ServerSetting.WriteTimeout
+	endless.DefaultMaxHeaderBytes = 1 << 20
+
+	endPoint := fmt.Sprintf(":%d", setting.ServerSetting.HttpPort)
+	server := endless.NewServer(endPoint, routers.InitRouter())
+	server.BeforeBegin = func(add string) {
+		log.Printf("Actual pid is %d", syscall.Getpid())
 	}
 
 	//开启一个协程进行监听服务
 	go func() {
-		if err := s.ListenAndServe(); err != nil {
+		if err := server.ListenAndServe(); err != nil {
 			log.Printf("Listen: %s\n", err)
 		}
 	}()
@@ -41,9 +48,11 @@ func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
-	if err := s.Shutdown(ctx); err != nil {
+	if err := server.Shutdown(ctx); err != nil {
 		log.Fatal("Server Shutdown:", err)
 	}
+	//开启定时任务
+	//timeSchedule()
 
 	log.Println("Server exiting")
 }
