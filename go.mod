@@ -43,6 +43,7 @@ require (
 	github.com/go-redis/redis v6.14.2+incompatible // indirect
 	github.com/go-sql-driver/mysql v1.7.0 // indirect
 	github.com/goccy/go-json v0.10.0 // indirect
+	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
 	github.com/golang/snappy v0.0.0-20180518054509-2e65f85255db // indirect
 	github.com/gomodule/redigo v2.0.0+incompatible
 	github.com/hashicorp/golang-lru v0.5.4 // indirect
@@ -73,6 +74,7 @@ require (
 	github.com/wendal/errors v0.0.0-20130201093226-f66c77a7882b // indirect
 	github.com/yuin/gopher-lua v0.0.0-20171031051903-609c9cd26973 // indirect
 	golang.org/x/crypto v0.4.0 // indirect
+	golang.org/x/image v0.2.0 // indirect
 	golang.org/x/tools v0.4.0 // indirect
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22 // indirect
 )
